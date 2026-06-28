@@ -129,10 +129,12 @@ ol {
   max-width: 100%;
 }
 
-.search-form__fieldset--city {
+.search-form__fieldset {
   border: none;
+}
+
+.search-form__fieldset--city {
   min-width: 225px;
-  /* align-self: flex-start; */
 }
 
 .search-form__fieldset-title {
@@ -162,7 +164,7 @@ ol {
   align-items: center;
 }
 
-.search-form__label:not(.search-form__label--city):hover{
+.search-form__label:not(.search-form__label--city):hover {
   cursor: pointer;
   text-decoration: underline;
 }
@@ -240,7 +242,7 @@ ol {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  overflow-y: scroll;
+  overflow-y: auto;
   position: relative;
 }
 
