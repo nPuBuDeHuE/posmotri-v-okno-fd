@@ -59,7 +59,8 @@ ol {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  min-width: 1140px;
+  width: 100%;
+  max-width: 1140px;
   gap: 30px;
 }
 
@@ -70,6 +71,21 @@ ol {
   font-size: 18px;
   background-color: transparent;
   border: 1px solid #fff;
+  cursor: pointer;
+}
+
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+.button:active {
+  background-color: #545050;
+}
+
+.button:hover {
+  text-decoration: underline;
 }
 
 .visually-hidden {
@@ -85,14 +101,15 @@ ol {
 /* result */
 
 .result {
-  min-width: 711px;
+  width: 711px;
 }
 
 .result__video-container {
   width: 100%;
-  height: 100%;
+  height: 386px;
   overflow: hidden;
   margin-bottom: 16px;
+  position: relative;
 }
 
 .result__video {
@@ -102,15 +119,20 @@ ol {
 }
 
 .search-form {
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
+  gap: 40px;
+  max-width: 100%;
 }
 
-.search-form__fieldset {
+.search-form__fieldset--city {
   border: none;
   min-width: 225px;
+  /* align-self: flex-start; */
 }
 
 .search-form__fieldset-title {
@@ -122,10 +144,73 @@ ol {
 .search-form__textfield {
   background-color: transparent;
   width: 100%;
+  border: none;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  padding: 2.5px 0;
+  appearance: none;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
 }
 
+.search-form__label {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+}
+
+.search-form__label:not(.search-form__label--city):hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.search-form-input--focused:focus-visible {
+  outline: none;
+}
+
+.search-form__label:has(.search-form-input--focused:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+.search-form__textfield::placeholder {
+  color: rgb(255 255 255 / 0.7);
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+}
+
+.search-form__pseudo-checkbox {
+  width: 19px;
+  height: 19px;
+  padding: 1px;
+  border: 1px solid #fff;
+}
+
+.search-form__pseudo-checkbox::after {
+  content: '';
+  display: block;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox:after {
+  opacity: 1;
+}
+
+
 .search-form__submit-button {
-  padding: 6px 73.5px;
+  /* padding: 6px 73.5px; */
+  width: 194px;
+  height: 34px;
+  text-wrap: nowrap;
 }
 
 /*  content__details  */
@@ -135,7 +220,7 @@ ol {
   height: 534px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 26px;
 }
 
 .title {
@@ -156,6 +241,7 @@ ol {
   flex-direction: column;
   gap: 30px;
   overflow-y: scroll;
+  position: relative;
 }
 
 .content__list {
@@ -164,24 +250,67 @@ ol {
   gap: 30px;
 }
 
+.content__list-item {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.content__card-link {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+
+}
+
+.content__card-link:active {
+  background-color: #545050;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
 .content__video-card {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
+  gap:3px;
 }
 
 .content__video-card-description-container {
   flex-grow: 1;
   overflow: hidden;
-  color: #fff;
+
 }
 
-.content__video-card-title,
-.content__video-card-description {
+.content__video-card-title {
   white-space: nowrap;
-  text-overflow: ellipsis;
   overflow: hidden;
+  font-size: 30px;
+  font-family: Oswald;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+}
+
+.content__video-card-description {
+  line-clamp: 4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  line-height: 16.2px;
 }
 
 .content__video-card-thumbnail {
@@ -192,5 +321,6 @@ ol {
 }
 
 .more-button {
-  padding: 6px 142px;
+  padding: 6px 140px;
+  margin: 3px;
 }

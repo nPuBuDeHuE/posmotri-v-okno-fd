@@ -17,15 +17,15 @@
           <video src="" controls class="result__video" poster=""></video>
         </div>
         <form class="search-form">
-          <fieldset class="search-form__fieldset">
+          <fieldset class="search-form__fieldset search-form__fieldset--city">
             <h2 class="search-form__fieldset-title">Город</h2>
-            <label class="search-form__label">
+            <label class="search-form__label search-form__label--city">
               <span class="search-form__label-text visually-hidden">Город</span>
               <input
                 type="text"
                 placeholder="Санкт Петербург, например"
                 name="city"
-                class="search-form__textfield"
+                class="search-form__textfield search-form-input--focused"
               />
             </label>
           </fieldset>
@@ -37,7 +37,7 @@
                   type="checkbox"
                   name="time"
                   value="morning"
-                  class="search-form__checkbox visually-hidden"
+                  class="search-form__checkbox visually-hidden search-form-input--focused"
                 />
                 <span class="search-form__pseudo-checkbox"></span>
                 <span class="search-form__label-text">Утро</span>
@@ -47,7 +47,7 @@
                   type="checkbox"
                   name="time"
                   value="afternoon"
-                  class="search-form__checkbox visually-hidden"
+                  class="search-form__checkbox visually-hidden search-form-input--focused"
                 />
                 <span class="search-form__pseudo-checkbox"></span>
                 <span class="search-form__label-text">День</span>
@@ -57,7 +57,7 @@
                   type="checkbox"
                   name="time"
                   value="night"
-                  class="search-form__checkbox visually-hidden"
+                  class="search-form__checkbox visually-hidden search-form-input--focused"
                 />
                 <span class="search-form__pseudo-checkbox"></span>
                 <span class="search-form__label-text">Ночь</span>
